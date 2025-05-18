@@ -1,6 +1,5 @@
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Generic Bag (Multiset) class that allows duplicates and supports common bag operations.
