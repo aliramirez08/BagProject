@@ -1,0 +1,17 @@
+# Ignore Java compiled files
+*.class
+
+# Ignore VS Code workspace files
+.vscode/
+
+# Ignore macOS hidden files
+.DS_Store
+
+# Ignore screenshots and logs if desired
+*.log
+*.png
+
+# Ignore IDE folders (Eclipse, IntelliJ, etc.)
+bin/
+build/
+out/
