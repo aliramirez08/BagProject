@@ -2,38 +2,38 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Generic Bag (Multiset) class that allows duplicates and supports common bag operations.
+ * A generic Bag (Multiset) class that allows duplicates and keeps count of elements.
  * @param <T> the type of elements stored in the bag
  */
 public class Bag<T> {
 
-    // Internal map to store item counts
-    private Map<T, Integer> map;
+    private final Map<T, Integer> itemMap;
 
-    // Constructor initializes the internal map
+    // Constructor
     public Bag() {
-        map = new HashMap<>();
+        itemMap = new HashMap<>();
     }
 
     /**
-     * Adds an item to the bag. Duplicates are allowed.
+     * Adds an item to the bag. Allows duplicates.
      * @param item the item to be added
      */
     public void add(T item) {
-        map.put(item, map.getOrDefault(item, 0) + 1);
+        itemMap.put(item, itemMap.getOrDefault(item, 0) + 1);
     }
 
     /**
-     * Removes one occurrence of the specified item from the bag, if it exists.
+     * Removes a single occurrence of the item from the bag.
+     * If the item does not exist, nothing happens.
      * @param item the item to remove
      */
     public void remove(T item) {
-        if (map.containsKey(item)) {
-            int count = map.get(item);
+        if (itemMap.containsKey(item)) {
+            int count = itemMap.get(item);
             if (count > 1) {
-                map.put(item, count - 1);
+                itemMap.put(item, count - 1);
             } else {
-                map.remove(item);
+                itemMap.remove(item);
             }
         }
     }
@@ -44,25 +44,29 @@ public class Bag<T> {
      * @return true if the item exists, false otherwise
      */
     public boolean contains(T item) {
-        return map.containsKey(item);
+        return itemMap.containsKey(item);
     }
 
     /**
-     * Returns the number of times the item appears in the bag.
+     * Returns the number of occurrences of the item in the bag.
      * @param item the item to count
      * @return the count of the item
      */
     public int count(T item) {
-        return map.getOrDefault(item, 0);
+        return itemMap.getOrDefault(item, 0);
     }
 
     /**
-     * Prints the contents of the bag along with their frequencies.
+     * Prints all elements in the bag along with their frequencies.
      */
     public void printContents() {
-        System.out.println("Bag contents:");
-        for (Map.Entry<T, Integer> entry : map.entrySet()) {
-            System.out.println(entry.getKey() + " x " + entry.getValue());
+        if (itemMap.isEmpty()) {
+            System.out.println("Bag is empty.");
+            return;
+        }
+        System.out.println("Bag contents (Item x Count):");
+        for (Map.Entry<T, Integer> entry : itemMap.entrySet()) {
+            System.out.printf("- %s x %d%n", entry.getKey(), entry.getValue());
         }
     }
 }
