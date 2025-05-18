@@ -1,0 +1,41 @@
+CLASS Bag<T>
+    - itemMap: HashMap<T, Integer>
+
+    METHOD add(item):
+        IF item exists in itemMap:
+            INCREMENT its count
+        ELSE:
+            ADD item to itemMap with count = 1
+
+    METHOD remove(item):
+        IF item exists in itemMap:
+            IF count > 1:
+                DECREMENT count by 1
+            ELSE:
+                REMOVE item from itemMap
+
+    METHOD contains(item):
+        RETURN true IF item is in itemMap, else false
+
+    METHOD count(item):
+        RETURN count of item from itemMap, or 0 if not present
+
+    METHOD printContents():
+        IF itemMap is empty:
+            PRINT "Bag is empty"
+        ELSE:
+            FOR each entry in itemMap:
+                PRINT item and its count
+
+END CLASS
+
+MAIN METHOD (BagDemo):
+    - Create Bag<Integer> called voteBag
+    - Add vote IDs (e.g., 101, 102, etc.) to simulate voting
+    - PRINT initial vote counts
+    - CHECK if specific candidates are present
+    - PRINT count of votes per candidate
+    - REMOVE one vote for candidate 101
+    - PRINT updated vote counts
+    - REMOVE all votes for candidate 103 (once, since only one vote)
+    - PRINT final vote counts
