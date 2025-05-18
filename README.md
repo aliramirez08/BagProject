@@ -21,3 +21,5 @@ The demo simulates a **vote counting system**, where each vote is represented by
 Candidate IDs are integers like `101`, `102`, etc. Multiple votes can be cast for the same candidate.
 
 ### Example Output
+
+![Program Output](./Screenshots/Output.png)
