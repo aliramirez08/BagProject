@@ -32,6 +32,7 @@ The program now also supports merging results from multiple regions and extracti
 ```bash
 javac Bag.java BagDemo.java
 java BagDemo
+```
 
 ---
 
