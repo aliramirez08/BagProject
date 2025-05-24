@@ -1,3 +1,4 @@
+```plaintext
 CLASS Bag<T>
     - itemMap: HashMap<T, Integer>
 
@@ -20,6 +21,18 @@ CLASS Bag<T>
     METHOD count(item):
         RETURN count of item from itemMap, or 0 if not present
 
+    METHOD size():
+        RETURN sum of all values in itemMap
+
+    METHOD merge(otherBag):
+        FOR each entry in otherBag:
+            ADD its count to current itemMap
+
+    METHOD distinct():
+        CREATE new Bag
+        ADD each unique key from itemMap to new Bag with count 1
+        RETURN new Bag
+
     METHOD printContents():
         IF itemMap is empty:
             PRINT "Bag is empty"
@@ -39,3 +52,11 @@ MAIN METHOD (BagDemo):
     - PRINT updated vote counts
     - REMOVE all votes for candidate 103 (once, since only one vote)
     - PRINT final vote counts
+
+    // NEW:
+    - PRINT total number of votes using size()
+    - Create second Bag with more votes (simulate different region)
+    - Merge second Bag into voteBag using merge()
+    - PRINT merged vote counts
+    - Create distinct bag with one occurrence per candidate
+    - PRINT distinct candidates

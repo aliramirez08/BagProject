@@ -69,4 +69,40 @@ public class Bag<T> {
             System.out.printf("- %s x %d%n", entry.getKey(), entry.getValue());
         }
     }
+
+    /**
+     * Returns the total number of elements in the bag (including duplicates).
+     * @return total size
+     */
+    public int size() {
+        int total = 0;
+        for (int count : itemMap.values()) {
+            total += count;
+        }
+        return total;
+    }
+
+    /**
+     * Merges another bag into this bag.
+     * @param otherBag the bag to merge from
+     */
+    public void merge(Bag<T> otherBag) {
+        for (Map.Entry<T, Integer> entry : otherBag.itemMap.entrySet()) {
+            T item = entry.getKey();
+            int count = entry.getValue();
+            itemMap.put(item, itemMap.getOrDefault(item, 0) + count);
+        }
+    }
+
+    /**
+     * Returns a new bag that contains only the distinct elements from the current bag.
+     * @return a new Bag with one of each element
+     */
+    public Bag<T> distinct() {
+        Bag<T> distinctBag = new Bag<>();
+        for (T item : itemMap.keySet()) {
+            distinctBag.add(item);
+        }
+        return distinctBag;
+    }
 }

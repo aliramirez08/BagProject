@@ -12,34 +12,54 @@ public class BagDemo {
         voteBag.add(101);
         voteBag.add(102);
 
-        // Print current vote counts
+        // === First Assignment Functionality ===
         System.out.println("Initial Vote Count:");
         voteBag.printContents();
 
-        // Check if certain candidates received any votes
         System.out.println("\nChecking for specific candidate presence:");
         System.out.println("Candidate 101 present? " + voteBag.contains(101));
         System.out.println("Candidate 105 present? " + voteBag.contains(105));
 
-        // Get count of votes for each candidate
         System.out.println("\nVote counts:");
         System.out.println("Candidate 101: " + voteBag.count(101));
         System.out.println("Candidate 102: " + voteBag.count(102));
         System.out.println("Candidate 105: " + voteBag.count(105));
 
-        // Remove one vote from candidate 101
         System.out.println("\nRemoving a vote from Candidate 101...");
         voteBag.remove(101);
 
-        // Updated bag contents
         System.out.println("\nUpdated Vote Count:");
         voteBag.printContents();
 
-        // Remove all votes from candidate 103
         System.out.println("\nRemoving all votes for Candidate 103...");
-        voteBag.remove(103); // once (only one vote)
+        voteBag.remove(103); // one vote
 
         System.out.println("\nFinal Vote Count:");
         voteBag.printContents();
+
+        // === Second Assignment Functionality ===
+
+        // 1. Print total vote size
+        System.out.println("\nTotal number of votes in the bag (including duplicates): " + voteBag.size());
+
+        // 2. Simulate another voting bag (e.g., votes from another region)
+        Bag<Integer> newVotes = new Bag<>();
+        newVotes.add(104);
+        newVotes.add(101);
+        newVotes.add(102);
+        newVotes.add(104);
+
+        System.out.println("\nVotes from another region:");
+        newVotes.printContents();
+
+        // 3. Merge newVotes into voteBag
+        voteBag.merge(newVotes);
+        System.out.println("\nMerged Vote Bag:");
+        voteBag.printContents();
+
+        // 4. Create a new bag with only distinct candidates
+        Bag<Integer> distinctCandidates = voteBag.distinct();
+        System.out.println("\nDistinct Candidates (Each appears only once):");
+        distinctCandidates.printContents();
     }
 }

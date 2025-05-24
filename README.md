@@ -13,6 +13,9 @@ The demo simulates a **vote counting system**, where each vote is represented by
 - Check if an element exists
 - Count the number of times an element appears
 - Display all elements with their counts
+- Calculate total size including duplicates**
+- Merge two bags into one**
+- Get a new bag of only distinct elements**
 
 ---
 
@@ -20,6 +23,20 @@ The demo simulates a **vote counting system**, where each vote is represented by
 
 Candidate IDs are integers like `101`, `102`, etc. Multiple votes can be cast for the same candidate.
 
-### Example Output
+The program now also supports merging results from multiple regions and extracting the set of distinct candidates.
+
+---
+
+## How to Run
+
+```bash
+javac Bag.java BagDemo.java
+java BagDemo
+
+---
+
+## Example Output
+
+Sample program output after demonstrating all features:
 
 ![Program Output](./Screenshots/Output.png)
