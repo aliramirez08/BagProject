@@ -35,11 +35,11 @@ public class Bag<T> {
     }
 
     public int size() {
-        int size = 0;
+        int total = 0;
         for (int count : bagMap.values()) {
-            size += count;
+            total += count;
         }
-        return size;
+        return total;
     }
 
     public Set<T> distinct() {
@@ -47,18 +47,16 @@ public class Bag<T> {
     }
 
     public void merge(Bag<T> other) {
-        for (T item : other.distinct()) {
-            int count = other.count(item);
-            for (int i = 0; i < count; i++) {
-                this.add(item);
-            }
+        for (Map.Entry<T, Integer> entry : other.bagMap.entrySet()) {
+            bagMap.put(entry.getKey(),
+                       bagMap.getOrDefault(entry.getKey(), 0) + entry.getValue());
         }
     }
 
     @Override
     public String toString() {
         if (bagMap.isEmpty()) {
-            return "The bag is empty.";
+            return "The bag is empty.\n";
         }
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<T, Integer> entry : bagMap.entrySet()) {
