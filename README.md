@@ -6,16 +6,16 @@ The included demo simulates a **vote counting system**, where each vote is repre
 
 ---
 
-##  Features
+## Features
 
--  Add elements to the bag
--  Remove a single instance of an element
--  Check if an element exists
--  Count the number of times an element appears
--  Calculate total size (including duplicates)
--  Get a set of distinct elements
--  Merge two bags into one
--  Output contents as a formatted string via `toString()`
+- Add elements to the bag
+- Remove a single instance of an element
+- Check if an element exists
+- Count the number of times an element appears
+- Calculate total size (including duplicates)
+- Get a set of distinct elements
+- Merge two bags into one
+- Output contents as a formatted string via `toString()`
 
 ---
 
@@ -39,5 +39,9 @@ java BagDemo
 ## Example Output
 
 Sample program output after demonstrating all features:
+
+```
+
+## Screenshot
 
 ![Program Output](./Screenshots/Output.png)
