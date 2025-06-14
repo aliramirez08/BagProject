@@ -1,62 +1,56 @@
-```plaintext
-CLASS Bag<T>
-    - itemMap: HashMap<T, Integer>
+Pseudocode for Bag.java
 
-    METHOD add(item):
-        IF item exists in itemMap:
-            INCREMENT its count
-        ELSE:
-            ADD item to itemMap with count = 1
+1. Create a Bag class using generics (Bag<T>).
+2. Internally use a HashMap<T, Integer> to store each item and the number of times it appears.
 
-    METHOD remove(item):
-        IF item exists in itemMap:
-            IF count > 1:
-                DECREMENT count by 1
-            ELSE:
-                REMOVE item from itemMap
+3. Method: add(item)
+   - If the item exists in the map, increment its count.
+   - Otherwise, add the item with count 1.
 
-    METHOD contains(item):
-        RETURN true IF item is in itemMap, else false
+4. Method: remove(item)
+   - If the item exists:
+       - If its count is more than 1, decrement the count.
+       - If its count is 1, remove the item from the map.
+   - Return true if the item was removed, false otherwise.
 
-    METHOD count(item):
-        RETURN count of item from itemMap, or 0 if not present
+5. Method: contains(item)
+   - Return true if the item exists in the map.
 
-    METHOD size():
-        RETURN sum of all values in itemMap
+6. Method: count(item)
+   - Return the number of times the item appears, or 0 if it doesn’t exist.
 
-    METHOD merge(otherBag):
-        FOR each entry in otherBag:
-            ADD its count to current itemMap
+7. Method: size()
+   - Return the total number of items in the bag, including duplicates (sum of all counts).
 
-    METHOD distinct():
-        CREATE new Bag
-        ADD each unique key from itemMap to new Bag with count 1
-        RETURN new Bag
+8. Method: distinct()
+   - Return a Set of all unique items in the bag (map keySet).
 
-    METHOD printContents():
-        IF itemMap is empty:
-            PRINT "Bag is empty"
-        ELSE:
-            FOR each entry in itemMap:
-                PRINT item and its count
+9. Method: merge(otherBag)
+   - For each entry in the other bag:
+       - Add its count to the current bag’s count for that item.
 
-END CLASS
+10. Method: toString()
+    - If the bag is empty, return a message stating so.
+    - Otherwise, return a string where each line shows an item and its count.
 
-MAIN METHOD (BagDemo):
-    - Create Bag<Integer> called voteBag
-    - Add vote IDs (e.g., 101, 102, etc.) to simulate voting
-    - PRINT initial vote counts
-    - CHECK if specific candidates are present
-    - PRINT count of votes per candidate
-    - REMOVE one vote for candidate 101
-    - PRINT updated vote counts
-    - REMOVE all votes for candidate 103 (once, since only one vote)
-    - PRINT final vote counts
+------------------------------------------------------------
 
-    // NEW:
-    - PRINT total number of votes using size()
-    - Create second Bag with more votes (simulate different region)
-    - Merge second Bag into voteBag using merge()
-    - PRINT merged vote counts
-    - Create distinct bag with one occurrence per candidate
-    - PRINT distinct candidates
+Pseudocode for BagDemo.java
+
+1. Create a Bag to represent votes in Region A.
+2. Add several candidate IDs to Region A to simulate vote casting.
+3. Print Region A's contents using toString().
+4. Print the total number of votes and count for Candidate 101.
+
+5. Create another Bag to represent votes in Region B.
+6. Add different candidate IDs to Region B.
+7. Print Region B's contents, total votes, and count for Candidate 104.
+
+8. Merge Region B votes into Region A using the merge() method.
+9. Print the combined vote totals from both regions.
+
+10. Print the list of distinct candidates in the combined bag.
+
+11. Remove all votes for Candidate 103 using a while-loop and the remove() method.
+
+12. Print the updated vote count after Candidate 103 has been fully removed.

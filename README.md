@@ -1,40 +1,40 @@
 # Java Bag (Multiset) Implementation
 
-This project implements a generic **Bag** data structure (also known as a **Multiset**) in Java. A bag is a collection that allows **duplicates** and stores **element frequencies**, unlike standard sets which do not.
+This project implements a generic **Bag** data structure (also known as a **Multiset**) in Java. Unlike traditional sets, a bag allows **duplicate elements** and stores the **frequency** of each element.
 
-The demo simulates a **vote counting system**, where each vote is represented by an integer (e.g., candidate ID). This shows how the bag can be used in real-world scenarios like tallying repeated values.
-
----
-
-## Features
-
-- Add elements to the bag
-- Remove a single instance of an element
-- Check if an element exists
-- Count the number of times an element appears
-- Display all elements with their counts
-- Calculate total size including duplicates**
-- Merge two bags into one**
-- Get a new bag of only distinct elements**
+The included demo simulates a **vote counting system**, where each vote is represented by a candidate ID (integer). This mirrors real-world use cases such as election tallying, survey analysis, and inventory tracking.
 
 ---
 
-## Example Scenario: Vote Counter
+##  Features
 
-Candidate IDs are integers like `101`, `102`, etc. Multiple votes can be cast for the same candidate.
-
-The program now also supports merging results from multiple regions and extracting the set of distinct candidates.
+-  Add elements to the bag
+-  Remove a single instance of an element
+-  Check if an element exists
+-  Count the number of times an element appears
+-  Calculate total size (including duplicates)
+-  Get a set of distinct elements
+-  Merge two bags into one
+-  Output contents as a formatted string via `toString()`
 
 ---
 
-## How to Run
+## 🗳️ Example Scenario: Vote Counter
+
+Candidate IDs are integers like `101`, `102`, etc. The program simulates:
+
+- Voting in two different regions
+- Merging the vote counts into a combined result
+- Showing distinct candidates
+- Removing all votes for a disqualified candidate (e.g., 103)
+
+---
+
+## ▶ How to Run
 
 ```bash
 javac Bag.java BagDemo.java
 java BagDemo
-```
-
----
 
 ## Example Output
 
