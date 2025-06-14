@@ -9,7 +9,7 @@ public class BagDemo {
         regionAVotes.add(101);
         regionAVotes.add(102);
 
-        System.out.println(" Region A Vote Counts:");
+        System.out.println("Region A Vote Counts:");
         System.out.print(regionAVotes);
 
         System.out.println("Total Votes in Region A: " + regionAVotes.size());
@@ -23,34 +23,34 @@ public class BagDemo {
         regionBVotes.add(102);
         regionBVotes.add(105);
 
-        System.out.println("\n Region B Vote Counts:");
+        System.out.println("\nRegion B Vote Counts:");
         System.out.print(regionBVotes);
 
         System.out.println("Total Votes in Region B: " + regionBVotes.size());
         System.out.println("Votes for Candidate 104 in Region B: " + regionBVotes.count(104));
 
         // === Merging Region B into Region A ===
-        System.out.println("\n Merging Region B votes into Region A...");
+        System.out.println("\nMerging Region B votes into Region A...");
         regionAVotes.merge(regionBVotes);
 
-        System.out.println("\n Combined Vote Counts (Region A + B):");
+        System.out.println("\nCombined Vote Counts (Region A + B):");
         System.out.print(regionAVotes);
 
         System.out.println("Total Combined Votes: " + regionAVotes.size());
 
         // === Distinct Candidates ===
-        System.out.println("\n Distinct Candidates in Combined Results:");
+        System.out.println("\nDistinct Candidates in Combined Results:");
         for (Integer candidate : regionAVotes.distinct()) {
             System.out.println("- Candidate ID: " + candidate);
         }
 
-        // === Optional: Remove a candidate's votes
-        System.out.println("\n Removing all votes for Candidate 103...");
+        // === Remove all votes for Candidate 103 ===
+        System.out.println("\nRemoving all votes for Candidate 103...");
         while (regionAVotes.remove(103)) {
-            // Keep removing until gone
+            // Continue removing until no more
         }
 
-        System.out.println(" Updated Vote Count After Removal:");
+        System.out.println("Updated Vote Count After Removal:");
         System.out.print(regionAVotes);
     }
 }
